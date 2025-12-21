@@ -664,8 +664,8 @@
     showProgress('⚡ Sonuçlar hesaplanıyor...', 90);
     await sleep(500);
 
-    const followerSet = new Set(followers.map(u => u.username));
-    const notFollowingBack = following.filter(u => !followerSet.has(u.username));
+    const followerSet = new Set(followers.map(u => u.id));
+    const notFollowingBack = following.filter(u => !followerSet.has(u.id));
 
     const stats = {
       following: following.length,
@@ -683,3 +683,4 @@
     console.error('Hata:', err);
   }
 })();
+
