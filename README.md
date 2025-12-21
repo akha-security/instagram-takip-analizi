@@ -1,4 +1,4 @@
-[# Instagram "Geri Takip Etmeyenler" 
+# Instagram "Geri Takip Etmeyenler" 
 
 Bu açık kaynak betik, Instagram’da takip ettiğiniz fakat sizi geri takip etmeyen hesapları listelemenize yardımcı olur. Tamamen tarayıcınızda, mevcut oturumunuzla çalışır; kimlik bilgilerinizi veya verilerinizi üçüncü kişilerle paylaşmaz.
 
@@ -19,7 +19,7 @@ Bu açık kaynak betik, Instagram’da takip ettiğiniz fakat sizi geri takip et
 2. Kendi profil sayfanıza gidin (ya da hedef kullanıcı adını hazır bulundurun).
 3. Geliştirici Araçları → Konsol’u açın:
    - Windows: `F12` veya `Ctrl+Shift+I`, sonra "Console" sekmesine geçin.
-4. `Untitled-1.ts` (betik) içeriğini konsola yapıştırın.
+4. `script.ts` (betik) içeriğini konsola yapıştırın.
 5. Enter’a basın. Betik şunları yapar:
    - Konsolda ilerlemeyi gösterir.
    - Sizi geri takip etmeyen hesapların tablosunu üretir.
