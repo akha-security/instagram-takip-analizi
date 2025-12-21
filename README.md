@@ -204,7 +204,7 @@ Her kullanıcı için:
 ## ⚠️ Yasal Uyarı
 
 Bu script yalnızca **eğitim amaçlı** geliştirilmiştir. Kullanırken dikkat edilmesi gerekenler:
-x] Seçici takipten çıkma
+- [x] Seçici takipten çıkma
 - [x] Toplu takipten çıkma
 - [x] İlerleme göstergesi
 - [ ] Filtre ve sıralama özellikleri
