@@ -57,7 +57,7 @@ Güvenilmeyen kaynaklardan tarayıcı konsoluna kod yapıştırmayın. Self‑XS
 - Panoya kopyalama hatası: Tarayıcınız konsoldan pano yazımını engelliyor olabilir; URL’leri yazdırılan tablodan kopyalayın.
 
 ## Güven ve Şeffaflık
-- Açık kaynak: `Untitled-1.ts` içindeki kodu inceleyin.
+- Açık kaynak: `script.ts` içindeki kodu inceleyin.
 - Gizleme yok, izleyici yok, harici çağrı yok.
 - Net sınırlar: sadece okuma amaçlı istekler; hesapta değişiklik yapan işlemler yok.
 
