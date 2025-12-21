@@ -16,6 +16,7 @@ Modern ve görsel bir arayüz ile Instagram'da seni takip etmeyen kullanıcılar
 - 🚀 **Hızlı ve Güvenli** - Instagram API kullanır, şifre gerektirmez
 
 ## 🖼️ Görünüm────────────────┐
+<img width="553" height="748" alt="3" src="https://github.com/user-attachments/assets/4482a2cf-a04b-450f-a1ec-596ac853535a" />
 
 
 ```
