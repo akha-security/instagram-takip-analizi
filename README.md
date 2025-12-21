@@ -1,68 +1,215 @@
-# Instagram "Geri Takip Etmeyenler" 
+# 📊 Instagram Takip Analizi
 
-Bu açık kaynak betik, Instagram’da takip ettiğiniz fakat sizi geri takip etmeyen hesapları listelemenize yardımcı olur. Tamamen tarayıcınızda, mevcut oturumunuzla çalışır; kimlik bilgilerinizi veya verilerinizi üçüncü kişilerle paylaşmaz.
+Modern ve görsel bir arayüz ile Instagram'da seni takip etmeyen kullanıcıları kolayca bulun ve yönetin!
 
-> Önemli: İnternette self‑XSS suistimali yapan veya Instagram hesaplarını çalmaya çalışan çok sayıda benzer kod parçacığı vardır. Bu proje bilerek basit, şeffaf ve güvenlidir: Kaynağın tamamını okuyabilirsiniz; sizden asla şifre, 2FA kodu istemez veya herhangi bir yere giriş yapmanızı talep etmez.
+## ✨ Özellikler
 
-## Ne Yapar
-- Instagram’ın web uç noktaları üzerinden takipçi ve takip edilen listelerinizi çeker.
-- Listeleri tarayıcınızda yerel olarak karşılaştırır.
-- Sizi geri takip etmeyenleri bir tabloda gösterir, dilerseniz profil URL’lerini panoya kopyalar.
+- 🎨 **Modern UI Tasarımı** - Gradient renkler ve animasyonlar ile görsel deneyim
+- 📈 **Gerçek Zamanlı İlerleme** - Yükleme durumunu anlık takip edin
+- 📊 **İstatistik Kartları** - Takipçi, takip edilen ve takip etmeyen sayıları
+- 👤 **Kullanıcı Kartları** - Her kullanıcı için detaylı bilgi kartı
+- ✅ **Seçici Takipten Çıkma** - İstediğiniz kişileri seçerek takipten çıkın
+- 🚫 **Toplu Takipten Çıkma** - Tüm listeyi tek seferde temizleyin
+- 📋 **Tek Tık Kopyalama** - Tüm profil linklerini panoya kopyalayın
+- 👥 **Çoklu Profil Desteği** - Kendi profiliniz veya arkadaşlarınızın profillerini analiz edin
+- 🎯 **Kolay Kullanım** - Sadece kodu çalıştırın, gerisini script halleder
+- 🚀 **Hızlı ve Güvenli** - Instagram API kullanır, şifre gerektirmez
 
-## Nasıl Çalışır (Yüksek Seviye)
-- Tarayıcı konsolunuzda tek seferlik bir fonksiyon olarak çalışır.
-- `instagram.com` için (aynı kaynakta) mevcut oturum çerezlerinizi ve CSRF token’ınızı kullanır.
-- İki başlık gönderir: `X-IG-App-ID` (Instagram Web Uygulama Kimliği) ve `X-CSRFToken` (çerezinizden). Harici sunucu yok, kimlik bilgisi isteme yok.
+## 🖼️ Görünüm────────────────┐
 
-## Kullanım
-1. Web’de Instagram’a giriş yapın (https://www.instagram.com/).
-2. Kendi profil sayfanıza gidin (ya da hedef kullanıcı adını hazır bulundurun).
-3. Geliştirici Araçları → Konsol’u açın:
-   - Windows: `F12` veya `Ctrl+Shift+I`, sonra "Console" sekmesine geçin.
-4. `script.ts` (betik) içeriğini konsola yapıştırın.
-5. Enter’a basın. Betik şunları yapar:
-   - Konsolda ilerlemeyi gösterir.
-   - Sizi geri takip etmeyen hesapların tablosunu üretir.
-   - İzin verilirse profil URL’lerini panoya kopyalar.
 
-## Güvenlik ve Gizlilik
-- %100 tarayıcı tarafı: tarayıcınızda çalışır, üçüncü taraf alanlara ağ çağrısı yapmaz.
-- Şifrenizi, SMS/2FA kodlarını istemez; kimlik bilgilerinizi yakalamaya çalışmaz.
-- Yalnızca mevcut oturumunuz ve CSRF çereziyle çalışır; istek kapsamı `instagram.com` ile sınırlıdır.
-- Adınıza herhangi bir işlem yapmaz (takip/çıkma, paylaşım yok). Sadece listeleri okur ve sonucu gösterir.
+```
 
-### Self‑XSS Uyarısı
-Güvenilmeyen kaynaklardan tarayıcı konsoluna kod yapıştırmayın. Self‑XSS, saldırganların oturumunuzu çalabilecek veya istenmeyen işlemler yapabilecek kodu çalıştırmanız için sizi kandırmasıdır. Bu depo açık kaynaktır; betiğin ne yaptığını doğrulayabilirsiniz. Başka yerlerde bulduğunuz rastgele kodları çalıştırmayın.
+## 🚀 Kurulum ve Kullanım
 
-## Notlar ve Sınırlamalar
-- Instagram’ın dahili web uç noktalarını kullanır; bunlar herhangi bir zamanda değişebilir.
-- `403`/`429` hataları görürseniz, hız sınırına takılmış olabilir veya başlık/çerezler eksik olabilir. Biraz bekleyip tekrar deneyin.
-- Servise nazik olmak için sayfalamada istekler arasında kısa bekleme içerir.
-- Kişisel kullanım için tasarlanmıştır. Büyük hesaplarda sayfalama nedeniyle daha uzun sürebilir.
+### Yöntem 1: Browser Console (Önerilen)
 
-## SSS
-- `APP_ID` nedir?
-  - `APP_ID`, istemci türünü tanımlamak için `X-IG-App-ID` başlığında kullanılan Instagram Web Uygulama Kimliğidir. Gizli değildir ve tek başına erişim sağlamaz.
-- Bu izinli mi?
-  - Sorumluluk size aittir; Instagram’ın Kullanım Koşullarına ve hız sınırlarına saygı gösterin. Betik, oturumunuza açık olan verileri okur ve eylemleri otomatikleştirmez.
-- Ban riski var mı?
-  - Ölçülü kullanımda olası değildir; ancak belgelenmemiş uç noktalarla her etkileşim bir miktar risk taşır. Betik kibar olmak için gecikmeler içerir.
-- Takip/çıkarma veya mesaj gönderir mi?
-  - Hayır. Sadece takipçi/takip edilen listelerini getirir ve karşılaştırır.
+1. **Instagram'a giriş yapın** ve herhangi bir profil sayfasına gidin
+2. **Developer Tools**'u açın:
+   - Windows/Linux: `F12` veya `Ctrl + Shift + I`
+   - Mac: `Cmd + Option + I`
+3. **Console** sekmesine geçin
+4. [script.js](script.js) dosyasındaki tüm kodu kopyalayın
+5. Console'a yapıştırın ve `Enter`'a basın
+6. **Modern UI** otomatik olarak açılacak! 🎉
 
-## Sorun Giderme
-- "Kullanıcı adı bulunamadı": Profil sayfanızdan çalıştırın veya istendiğinde bir kullanıcı adı girin.
-- `403` (Forbidden): Girişli olduğunuzdan emin olun ve çerezlerde `X-CSRFToken` bulunduğunu kontrol edin.
-- `429` (Too Many Requests): Çok fazla istek yaptınız; bekleyip daha sonra tekrar deneyin.
-- Panoya kopyalama hatası: Tarayıcınız konsoldan pano yazımını engelliyor olabilir; URL’leri yazdırılan tablodan kopyalayın.
+### Yöntem 2: Bookmarklet (Hızlı Erişim)
 
-## Güven ve Şeffaflık
-- Açık kaynak: `script.ts` içindeki kodu inceleyin.
-- Gizleme yok, izleyici yok, harici çağrı yok.
-- Net sınırlar: sadece okuma amaçlı istekler; hesapta değişiklik yapan işlemler yok.
+1. Tarayıcınızda yeni bir **yer imi/bookmark** oluşturun
+2. İsim: `IG Takip Kontrol`
+3. URL: Aşağıdaki kodu yapıştırın:
 
-## Katkıda Bulunma
-Hata kayıtları (issues) ve çekme istekleri (pull requests) memnuniyetle karşılanır. Instagram web uç noktaları değişirse, betiği güncel tutmaya yönelik katkılar değerlidir.
+```javascript
+javascript:(async()=>{/* script.js içeriğini buraya yapıştırın */})();
+```
 
-## Sorumluluk Reddi
-Bu proje olduğu gibi sunulur; herhangi bir garanti verilmez. Kişisel amaçlarla kullanın, Instagram’ın Hizmet Koşullarına saygı gösterin ve hız sınırları ile gizlilik konularına dikkat edin.]
+4. Instagram'da kullanmak istediğinizde bookmark'a tıklayın
+
+### Yöntem 3: Chrome Extension (Gelişmiş)
+
+```bash
+# Yakında eklenecek
+```
+
+## 📖 Nasıl Çalışır?
+
+1. **Kullanıcı Tespiti** - Aktif profil sayfasından kullanıcı adı alınır
+2. **Takipçi Listesi** - Instagram API üzerinden takipçi listesi çekilir
+3. **Takip Edilen Listesi** - Takip ettiğiniz kişilerin listesi alınır
+4. **Karşılaştırma** - İki liste karşılaştırılır
+5. **Sonuç Gösterimi** - Modern UI ile sonuçlar görüntülenir
+
+## 🔒 Güvenlik
+
+- ✅ **Şifre Gerektirmez** - Instagram oturum bilgilerinizi kullanır
+- ✅ **Yerel Çalışır** - Tüm işlemler tarayıcınızda gerçekleşir
+- ✅ **Veri Saklamaz** - Hiçbir veri harici sunucuya gönderilmez
+- ✅ **Açık Kaynak** - Kodları inceleyebilir ve güvenliğini doğrulayabilirsiniz
+
+## ⚙️ Teknik Detaylar
+
+### Kullanılan Teknolojiler
+
+- **Vanilla JavaScript** - Harici bağımlılık yok
+- **Instagram Web API** - Resmi web API endpoint'leri
+- **CSS3 Animations** - Modern animasyonlar ve geçişler
+- **Async/Await** - Asenkron işlemler için modern JavaScript
+
+### API Endpoint'leri
+
+```javascript
+// Profil bilgisi
+GET /api/v1/users/web_profile_info/?username={username}
+
+// Takipçiler
+GET /api/v1/friendships/{userId}/followers/?count=50&search_surface=follow_list_page
+
+// Takip edilenler
+GET /api/v1/friendships/{userId}/following/?count=50&search_surface=follow_list_page
+```
+
+### Gereksinimler
+
+- ✅ Modern web tarayıcısı (Chrome, Firefox, Edge, Safari)
+- ✅ Instagram hesabına giriş yapılmış olmalı
+- ✅ JavaScript etkin olmalı
+- ✅ Developer Console erişimi
+
+## 📊 İstatistikler
+
+Script size şu bilgileri gösterir:
+
+| İstatistik | Açıklama |
+|------------|----------|
+| 👥 Takip Edilen | Takip ettiğiniz toplam kişi sayısı |
+| ❤️ Takipçi | Sizi takip eden toplam kişi sayısı |
+| ⚠️ Takip Etmiyor | Sizi takip etmeyen kişi sayısı |
+
+## 🎯 Özellik Detayları
+
+### İlerleme Göstergesi
+- 🔍 Profil bilgileri alınıyor (10%)
+- 👥 Takipçiler yükleniyor (20-40%)
+- 📋 Takip edilenler yükleniyor (50-80%)
+- ⚡ Sonuçlar hesaplanıyor (90%)
+- ✅ Tamamlandı (100%)
+
+### Kullanıcı Kartları
+Her kullanıcı için:
+- Username (`@kullanici`)
+- Tam ad
+- Profil linki (yeni sekmede açılır)
+- Hover efektleri
+
+### Kopyalama Özelliği
+- 📋 Tek tıkla tüm profil linklerini kopyalayın
+- Satır satır düzenlenmiş format
+- Başarı/hata bildirimleri
+
+## 🛠️ Sorun Giderme
+
+### "Kullanıcı adı bulunamadı" Hatası
+- ✅ Instagram'da profil sayfasında olduğunuzdan emin olun
+- ✅ Giriş yapmış olmalısınız
+
+### "Profil bilgisi alınamadı" Hatası
+- ✅ İnternet bağlantınızı kontrol edin
+- ✅ Instagram'dan çıkış yapıp tekrar giriş yapın
+- ✅ Birkaç dakika bekleyip tekrar deneyin
+
+### Script Çalışmıyor
+- ✅ Console'da hata mesajlarını kontrol edin
+- ✅ Tarayıcıyı yenileyin ve tekrar deneyin
+- ✅ Başka bir tarayıcıda deneyin
+
+## ⚠️ Yasal Uyarı
+
+Bu script yalnızca **eğitim amaçlı** geliştirilmiştir. Kullanırken dikkat edilmesi gerekenler:
+
+- 📜 Instagram'ın [Hizmet Şartları](https://help.instagram.com/581066165581870)'nı okuyun
+- ⏱️ Rate limiting nedeniyle çok sık kullanmayın
+- 🚫 Spam veya otomatik işlemler için kullanmayın
+- ⚖️ Kişisel hesabınızda kullanın, başkalarınınkinde değil
+
+## 🤝 Katkıda Bulunma
+
+Katkılarınızı bekliyoruz! Nasıl katkıda bulunabilirsiniz:
+
+1. 🍴 Repo'yu fork edin
+2. 🌿 Yeni bir branch oluşturun (`git checkout -b feature/amazing-feature`)
+3. 💻 Değişikliklerinizi commit edin (`git commit -m 'feat: Add amazing feature'`)
+4. 📤 Branch'inizi push edin (`git push origin feature/amazing-feature`)
+5. 🎉 Pull Request oluşturun
+
+### Geliştirme Önerileri
+
+- [ ] Filtre ve sıralama özellikleri
+- [ ] Export to CSV/JSON
+- [ ] Karşılıklı takip etmeyenler
+- [ ] Dark/Light tema switcher
+- [ ] Çoklu hesap desteği
+- [ ] Chrome extension versiyonu
+- [ ] İstatistik grafikleri
+
+## 📝 Değişiklik Geçmişi
+
+### v1.0.0 (2025-12-21)
+- ✨ İlk sürüm yayınlandı
+- 🎨 Modern UI tasarımı eklendi
+- 📊 İlerleme çubuğu ve animasyonlar
+- 👥 Kullanıcı kartları ve profil linkleri
+- 📋 Kopyalama özelliği
+
+## 📄 Lisans
+
+Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır. Detaylar için LICENSE dosyasına bakın.
+
+## 👨‍💻 Geliştirici
+
+**Caner**
+
+- 💼 GitHub: [@kullaniciadi](https://github.com/caneraktas1337)
+
+## 🌟 Destek
+
+Bu projeyi beğendiyseniz:
+- ⭐ Yıldız verin
+- 🐛 Bug bildirin
+- 💡 Önerilerde bulunun
+- 🔄 Paylaşın
+
+## 📞 İletişim
+
+Sorularınız veya önerileriniz için:
+- 🐛 [Issue açın](https://github.com/kullaniciadi/repo/issues)
+- 💬 [Discussion başlatın](https://github.com/kullaniciadi/repo/discussions)
+
+---
+
+<div align="center">
+
+**⚡ Made with ❤️ for Instagram Users**
+
+[⬆ Başa Dön](#-instagram-takip-analizi)
+
+</div>
