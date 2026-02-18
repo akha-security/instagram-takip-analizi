@@ -1,6 +1,6 @@
 Kullanım Talimatı
 
-Tarayıcınızda ilgili sayfayı açın.
+Tarayıcınızda Instagram profilinize açın.
 
 F12 tuşuna basarak Developer Tools (Geliştirici Araçları) panelini açın.
 
